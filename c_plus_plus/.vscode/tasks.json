@@ -2,10 +2,26 @@
   // See https://go.microsoft.com/fwlink/?LinkId=733558
   // for the documentation about the tasks.json format
   "version": "2.0.0",
-  "command": "g++",
-  "type": "shell",
-  "args": ["${workspaceRoot}/imooc_algorithms/l01_selection_sort.cpp", "-o", "${workspaceRoot}/imooc_algorithms/build/demo.out"],// g++ 命令参数
-  "presentation": {
-
-  }
+  "tasks": [
+    {
+      "label": "build",
+      "type": "shell",
+      "command": "g++",
+      "args": [
+        "${file}",
+        "-Wall",
+        "-ggdb3",
+        "-o",
+        "demo.out",
+        "-std=c++17"
+      ],
+      "group": "build",
+      "presentation": {
+        // Reveal the output only if unrecognized errors occur.
+        "reveal": "silent"
+      },
+      // Use the standard MS compiler pattern to detect errors, warnings and infos
+      "problemMatcher": "$msCompile"
+    }
+  ]
 }
